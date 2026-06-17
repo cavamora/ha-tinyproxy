@@ -6,7 +6,6 @@ description: "Lightweight HTTP/HTTPS forward proxy — e.g. residential egress f
 url: "https://github.com/craqs/ha-tinyproxy"
 arch:
   - aarch64
-  - amd64
 init: false
 host_network: true
 options:
