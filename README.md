@@ -10,7 +10,7 @@ block or throttle datacenter IP ranges.
 ## Installation
 
 1. **Settings → Add-ons → Add-on store → ⋮ → Repositories**, add:
-   `https://github.com/craqs/ha-tinyproxy`
+   `https://github.com/cavamora/ha-tinyproxy`
 2. Install **Tinyproxy** from the store.
 3. Review the configuration (especially `allowed_clients`) and start the add-on.
 
