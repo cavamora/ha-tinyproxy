@@ -1,5 +1,5 @@
 name: "Tinyproxy"
-version: "1.0.2"
+version: "1.0.3"
 slug: tinyproxy
 description: "Lightweight HTTP/HTTPS forward proxy — e.g. residential egress for remote machines over Tailscale"
 url: "https://github.com/cavamora/ha-tinyproxy"
@@ -17,9 +17,9 @@ options:
     - 80
   disable_via_header: true
   # Connect logs each accepted proxy connection without the full Info-level noise.
-  # Tinyproxy runs in foreground and, with no LogFile/Syslog directive, writes to
-  # stdout/stderr; HAOS journald captures that and Grafana Alloy ships it to Loki.
-  log_level: Connect
+  # Named tinyproxy_log_level to avoid hassio-addons/base interpreting a generic
+  # log_level option; that base service does not accept Tinyproxy's "Connect" level.
+  tinyproxy_log_level: Connect
   max_clients: 20
   timeout: 600
 schema:
@@ -29,6 +29,6 @@ schema:
   connect_ports:
     - int
   disable_via_header: bool
-  log_level: list(Critical|Error|Warning|Notice|Connect|Info)
+  tinyproxy_log_level: list(Critical|Error|Warning|Notice|Connect|Info)
   max_clients: int(1,)
   timeout: int(1,)

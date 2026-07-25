@@ -22,7 +22,7 @@ block or throttle datacenter IP ranges.
 | `allowed_clients` | `["100.64.0.0/10"]` | IPs/CIDRs allowed to use the proxy. **Empty list = open to every client that can reach the host — don't do that.** Default covers the Tailscale CGNAT range. |
 | `connect_ports` | `[443, 80]` | Destination ports allowed for HTTPS `CONNECT`. Empty list = any port. |
 | `disable_via_header` | `true` | Don't add the `Via:` header (reduces proxy fingerprinting). |
-| `log_level` | `Connect` | One of `Critical`, `Error`, `Warning`, `Notice`, `Connect`, `Info`. Use `Connect` to log every proxy access/connection without the full `Info` noise. |
+| `tinyproxy_log_level` | `Connect` | One of `Critical`, `Error`, `Warning`, `Notice`, `Connect`, `Info`. Use `Connect` to log every proxy access/connection without the full `Info` noise. Named this way to avoid conflict with the base add-on `log_level` service. |
 | `max_clients` | `20` | Maximum simultaneous client connections. |
 | `timeout` | `600` | Idle connection timeout in seconds. |
 
@@ -44,7 +44,7 @@ with the rest of `{job="haos-journal"}`.
 For access auditing, keep:
 
 ```yaml
-log_level: Connect
+tinyproxy_log_level: Connect
 ```
 
 Useful Loki queries:

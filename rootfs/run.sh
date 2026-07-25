@@ -4,7 +4,7 @@ set -e
 CONF=/etc/tinyproxy/tinyproxy.conf
 
 PORT=$(bashio::config 'port')
-LOG_LEVEL=$(bashio::config 'log_level')
+LOG_LEVEL=$(bashio::config 'tinyproxy_log_level')
 MAX_CLIENTS=$(bashio::config 'max_clients')
 TIMEOUT=$(bashio::config 'timeout')
 
