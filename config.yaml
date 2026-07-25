@@ -1,5 +1,5 @@
 name: "Tinyproxy"
-version: "1.0.1"
+version: "1.0.2"
 slug: tinyproxy
 description: "Lightweight HTTP/HTTPS forward proxy — e.g. residential egress for remote machines over Tailscale"
 url: "https://github.com/cavamora/ha-tinyproxy"
@@ -16,7 +16,10 @@ options:
     - 443
     - 80
   disable_via_header: true
-  log_level: Notice
+  # Connect logs each accepted proxy connection without the full Info-level noise.
+  # Tinyproxy runs in foreground and, with no LogFile/Syslog directive, writes to
+  # stdout/stderr; HAOS journald captures that and Grafana Alloy ships it to Loki.
+  log_level: Connect
   max_clients: 20
   timeout: 600
 schema:
