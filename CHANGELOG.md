@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.4] - 2026-07-24
+
+- Publish prebuilt images from the `cavamora` fork for both `amd64` and `aarch64`.
+- Add the add-on `image` field pointing to `ghcr.io/cavamora/ha-tinyproxy-{arch}`.
+
 ## [1.0.3] - 2026-07-24
 
 - Rename `log_level` to `tinyproxy_log_level` because the base add-on image

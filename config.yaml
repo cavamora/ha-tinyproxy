@@ -1,6 +1,7 @@
 name: "Tinyproxy"
-version: "1.0.3"
+version: "1.0.4"
 slug: tinyproxy
+image: ghcr.io/cavamora/ha-tinyproxy-{arch}
 description: "Lightweight HTTP/HTTPS forward proxy — e.g. residential egress for remote machines over Tailscale"
 url: "https://github.com/cavamora/ha-tinyproxy"
 arch:

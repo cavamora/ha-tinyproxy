@@ -19,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        arch: [aarch64]
+        arch: [aarch64, amd64]
     steps:
       - name: Checkout
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
@@ -32,7 +32,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       # Builds the add-on for the target arch (Dockerfile uses ARG BUILD_FROM) and
-      # pushes ghcr.io/craqs/ha-tinyproxy-<arch>:<version> (version from config.yaml)
+      # pushes ghcr.io/cavamora/ha-tinyproxy-<arch>:<version> (version from config.yaml)
       # plus :latest. Matches the `image:` field in config.yaml.
       - name: Build ${{ matrix.arch }} add-on
         uses: home-assistant/builder@62a1597b84b3461abad9816d9cd92862a2b542c3 # 2026.03.2
@@ -41,5 +41,5 @@ jobs:
             --${{ matrix.arch }} \
             --target . \
             --image "ha-tinyproxy-{arch}" \
-            --docker-hub "ghcr.io/craqs" \
+            --docker-hub "ghcr.io/cavamora" \
             --addon
